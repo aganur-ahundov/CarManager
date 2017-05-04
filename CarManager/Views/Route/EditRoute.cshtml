@@ -1,0 +1,64 @@
+﻿@model CarManager.Models.DeliveryRoute
+
+@{
+    ViewBag.Title = "Delivery Routes List";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
+    
+    @using ( Html.BeginForm( "EditRoute", "Route", FormMethod.Post ) )
+    {
+        @Html.AntiForgeryToken() ///????????????
+        
+        <div class="edit-route-form">
+            <h4>Edit Delivery Route</h4>
+            <hr />
+            @Html.ValidationSummary( true )
+            @Html.HiddenFor(model => model.Id)
+    
+            <div class="form-group">
+                @Html.LabelFor( model => model.DeliveryTo )
+                    @Html.EditorFor( model => model.DeliveryTo )
+                    @Html.ValidationMessageFor( model => model.DeliveryTo )
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor( model => model.DeliveryFrom )
+                    @Html.EditorFor( model => model.DeliveryFrom )
+                    @Html.ValidationMessageFor( model => model.DeliveryFrom )
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor( model => model.DeliveryDate )
+                    @Html.EditorFor( model => model.DeliveryDate )
+                    @Html.ValidationMessageFor( model => model.DeliveryDate )
+            </div>
+       
+            <div class="form-group">
+                @Html.LabelFor(model => model.Status )
+                    @Html.EnumDropDownListFor( model => model.Status )
+                    @Html.ValidationMessageFor( model => model.Status )
+            </div>
+    
+            <div class="form-group">
+                @Html.LabelFor( model => model.IsTransborder )
+                
+                        @Html.EditorFor( model => model.IsTransborder)
+                        @Html.ValidationMessageFor( model => model.IsTransborder )
+            </div>
+    
+            <div class="form-group">
+                   <button>Save</button>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+            @*<div>
+            </div>*@
+        </div>
+    }
+    
+    

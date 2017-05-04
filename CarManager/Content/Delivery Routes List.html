@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://localhost:54779/Route/EditRoute/1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Delivery Routes List</title>
+    <link rel="stylesheet" type="text/css" href="./Delivery Routes List_files/Styles.css">
+
+<script type="text/javascript">try {
+var AG_onLoad=function(func){if(document.readyState==="complete"||document.readyState==="interactive")func();else if(document.addEventListener)document.addEventListener("DOMContentLoaded",func);else if(document.attachEvent)document.attachEvent("DOMContentLoaded",func)};
+var AG_removeElementById = function(id) { var element = document.getElementById(id); if (element && element.parentNode) { element.parentNode.removeChild(element); }};
+var AG_removeElementBySelector = function(selector) { if (!document.querySelectorAll) { return; } var nodes = document.querySelectorAll(selector); if (nodes) { for (var i = 0; i < nodes.length; i++) { if (nodes[i] && nodes[i].parentNode) { nodes[i].parentNode.removeChild(nodes[i]); } } } };
+var AG_each = function(selector, fn) { if (!document.querySelectorAll) return; var elements = document.querySelectorAll(selector); for (var i = 0; i < elements.length; i++) { fn(elements[i]); }; };
+var AG_removeParent = function(el, fn) { while (el && el.parentNode) { if (fn(el)) { el.parentNode.removeChild(el); return; } el = el.parentNode; } };
+var AdFox_getCodeScript = function() {};
+AG_onLoad(function() { AG_each('iframe[id^="AdFox_iframe_"]', function(el) { if (el && el.parentNode) { el.parentNode.removeChild(el); } }); });
+try { Object.defineProperty(window, 'noAdsAtAll', { get: function() { return true; } }); } catch (ex) {}
+} catch (ex) { console.error('Error executing AG js: ' + ex); }</script></head>
+<body>
+    <div class="wrapper">
+        <div class="page-header" id="back-to-top">
+            <p>Delivery Routes List</p>
+        </div>
+        <div class="widget">
+            <ul class="widget-list">
+                <li><a href="http://localhost:54779/Route">Route List</a></li>
+            </ul>
+
+        </div>
+        <div class="body-content">
+            
+
+    <script src="./Delivery Routes List_files/jquery-1.10.2.min.js"></script>
+    <script src="./Delivery Routes List_files/jquery.validate.min.js"></script>
+    <script src="./Delivery Routes List_files/jquery.validate.unobtrusive.min.js"></script>
+    
+    
+<form action="http://localhost:54779/Route/EditRoute/1" method="post" novalidate="novalidate"><input name="__RequestVerificationToken" type="hidden" value="YYWXf0uHcVHlPrqBdibKYg00fM9Jp7jJQMiorX7vQgonNynfa4VUE3CrzaR9XbhW6vNsoYJ94fYQ16DKQ5pAmF67uehFCwlcdiAS9qmbNTk1">        <div class="form-horizontal">
+            <h4>DeliveryRoute</h4>
+            <hr>
+            
+            <input data-val="true" data-val-number="The field Id must be a number." data-val-required="The Id field is required." id="Id" name="Id" type="hidden" value="1">
+    
+            <div class="form-group">
+                <label for="DeliveryTo">Departure address</label>
+                    <input class="text-box single-line" data-val="true" data-val-required="The Departure address field is required." id="DeliveryTo" name="DeliveryTo" type="text" value="Kiev">
+                    <span class="field-validation-valid" data-valmsg-for="DeliveryTo" data-valmsg-replace="true"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="DeliveryFrom">Delivery address</label>
+                    <input class="text-box single-line" data-val="true" data-val-required="The Delivery address field is required." id="DeliveryFrom" name="DeliveryFrom" type="text" value="Kharkov">
+                    <span class="field-validation-valid" data-valmsg-for="DeliveryFrom" data-valmsg-replace="true"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="DeliveryDate">Date</label>
+                    <input class="text-box single-line" data-val="true" data-val-date="The field Date must be a date." data-val-required="The Date field is required." id="DeliveryDate" name="DeliveryDate" type="datetime" value="03.05.2017 0:00:00">
+                    <span class="field-validation-valid" data-valmsg-for="DeliveryDate" data-valmsg-replace="true"></span>
+            </div>
+       
+            <div class="form-group">
+                <label for="Status">Status</label>
+                    <select data-val="true" data-val-required="The Status field is required." id="Status" name="Status"><option selected="selected" value="0">Open</option>
+<option value="1">Close</option>
+<option value="2">InProgress</option>
+<option value="3">Cancel</option>
+</select>
+                    <span class="field-validation-valid" data-valmsg-for="Status" data-valmsg-replace="true"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="IsTransborder">Transborder</label>
+                
+                        <input class="check-box" data-val="true" data-val-required="The Transborder field is required." id="IsTransborder" name="IsTransborder" type="checkbox" value="true"><input name="IsTransborder" type="hidden" value="false">
+                        <span class="field-validation-valid" data-valmsg-for="IsTransborder" data-valmsg-replace="true"></span>
+            </div>
+    
+            <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-default" style="
+    padding:  10px 22px;
+    font-size: 16px;
+    background-color: #FCDA40;
+">
+            </div>
+        </div>
+</form>    
+    <div>
+        <a href="http://localhost:54779/Route">Back to List</a>
+    </div>
+
+        </div>
+        <footer>
+            <hr>
+            <p> Copyright © 2017 - Car Manager. All rights reserved.</p>
+            <a href="http://localhost:54779/Route/EditRoute/1#back-to-top">Back to top</a>
+        </footer>
+    </div>
+
+<!-- Visual Studio Browser Link -->
+<script type="application/json" id="__browserLink_initializationData">
+    {"appName":"Chrome","requestId":"559eaccdb51b45d2a286f66affac55c5"}
+</script>
+<script type="text/javascript" src="./Delivery Routes List_files/browserLink" async="async"></script>
+<!-- End Browser Link -->
+
+
+
+</body></html>

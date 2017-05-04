@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page-header" id="back-to-top">
+            <p>@ViewBag.Title</p>
+        </div>
+        <div class="widget">
+            <ul class="widget-list">
+                <li> @Html.ActionLink( "Route List", "Index", "Route" )</li>
+                <li> @Html.ActionLink( "Driver List", "Index", "Driver" ) </li>
+            </ul>
+
+        </div>
+        <div class="body-content">
+            @RenderBody()
+        </div>
+        <footer>
+            <hr />
+            <p> Copyright &copy; @DateTime.Now.Year - Car Manager. All rights reserved.</p>
+            <a href="#back-to-top">Back to top</a>
+        </footer>
+    </div>
+</body>
+</html>

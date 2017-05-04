@@ -1,0 +1,38 @@
+﻿@using CarManager.Models;
+@model IEnumerable<DeliveryRoute>
+
+@{
+    ViewBag.Title = "Delivery Routes List";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+    <div class="routes-table">
+       <table>
+           <thead>
+               <tr>
+                   <th>#</th>
+                   <th>From</th>
+                   <th>To</th>
+                   <th>Date</th>
+                   <th>Transborder</th>
+                   <th>Status</th>
+               </tr>
+           </thead>
+           <tbody>
+               @foreach( DeliveryRoute route in Model )
+               {
+                   <tr>
+                       <td> @Html.DisplayFor( modelItem => route.Id ) </td>
+                       <td> @Html.DisplayFor( modelItem => route.DeliveryFrom ) </td>
+                       <td> @Html.DisplayFor( modelItem => route.DeliveryTo ) </td>
+                       <td> @Html.DisplayFor( modelItem => route.DeliveryDate ) </td>
+                       <td> @Html.DisplayFor( modelItem => route.IsTransborder ) </td>
+                       <td> @Html.DisplayFor( modelItem => route.Status) </td>
+                       <td> @Html.ActionLink( "Edit", "EditRoute", new { id = route.Id } ) </td>
+                       @*<td> @Html.ActionLink( "Delete", "DeleteRoute", new { id = route.Id }) </td>*@
+                   </tr>
+               }
+               <tr><td colspan="3"> @Html.ActionLink( "Add Delivery Route", "AddDeliveryRoute" ) </td></tr>
+           </tbody>
+       </table>
+    </div>

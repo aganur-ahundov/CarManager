@@ -1,0 +1,39 @@
+﻿@using CarManager.Models;
+@model IEnumerable<Driver>
+
+@{
+    ViewBag.Title = "Driver List";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>Driver List</h2>
+
+<div class="driver-list">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>License Number</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ( Driver current in Model )
+            {
+                <tr>
+                    <td>@current.Name</td>
+                    <td>@current.Age</td>
+                    <td>@current.LicenseNumber</td>
+                    <td>@current.Status</td>
+                    <td>@Html.ActionLink( "Details", "DriverDetails", new { id = current.Id } ) </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        @Html.ActionLink("Add Driver", "AddDriver")
+    </div>
+
+</div>
+

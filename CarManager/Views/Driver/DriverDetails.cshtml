@@ -1,0 +1,66 @@
+﻿@using CarManager.Models;
+@model Driver
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="driver">
+    <div class="general-info">
+        <div>
+            @Html.LabelFor( d => d.Name ):
+            @Html.DisplayFor( d => d.Name )
+        </div>
+        <div>
+            @Html.LabelFor( d => d.Age ):
+            @Html.DisplayFor( d => d.Age )
+        </div>
+        <div>
+            @Html.LabelFor( d => d.LicenseNumber ):
+            @Html.DisplayFor( d => d.LicenseNumber )
+        </div>
+        <div>
+            @Html.LabelFor( d => d.Status ):
+            @Html.DisplayFor( d => d.Status )
+        </div>
+
+    </div>
+
+    <div class="driver-history">
+        <table>
+            <thead>
+                <tr>
+                    <th> From </th>
+                    <th> To </th>
+                    <th> Status </th>
+                    <th> Transborder </th>
+                    <th> Date </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ( DeliveryRoute route in Model.RouteHistory )
+                {
+                    <tr>
+                        <td> @Html.DisplayFor( modelItem => route.DeliveryFrom ) </td>
+                        <td> @Html.DisplayFor( modelItem => route.DeliveryTo ) </td>
+                        <td> @Html.DisplayFor( modelItem => route.Status ) </td>
+                        <td> @Html.DisplayFor( modelItem => route.IsTransborder ) </td>
+                        <td> @Html.DisplayFor( modelItem => route.DeliveryDate ) </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    @if( Model.Status == DriverStatus.WaitForConfirm )
+    {
+        //INFO ABOUT REQUEST
+    }
+
+    @Html.ActionLink( "Back to List", "Index" )
+</div>
+
