@@ -1,0 +1,19 @@
+﻿@using CarManager.Models;
+@model IEnumerable<DeliveryRoute>
+
+
+    @{ int i = 1;
+        foreach (DeliveryRoute route in Model)
+        {
+        <tr>
+            <td> @i++ </td>
+            <td> @Html.DisplayFor(modelItem => route.DeliveryFrom) </td>
+            <td> @Html.DisplayFor(modelItem => route.DeliveryTo) </td>
+            <td> @Html.DisplayFor(modelItem => route.DeliveryDate) </td>
+            <td> @Html.DisplayFor(modelItem => route.IsTransborder) </td>
+            <td> @Html.DisplayFor(modelItem => route.Status) </td>
+            <td> @Html.ActionLink("Edit", "EditRoute", new { id = route.Id }) </td>
+            @*<td> @Html.ActionLink( "Delete", "DeleteRoute", new { id = route.Id }) </td>*@
+        </tr>
+            }
+        }

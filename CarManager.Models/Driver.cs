@@ -21,18 +21,18 @@ namespace CarManager.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Display( Name = "License")]
-        public string LicenseNumber { get; set; }
+        
 
         [Required]
         public string Name { get; set; }
+
 
         [Required]
         public int Age { get; set; }
         
 
         public DriverStatus Status { get; set; }
+
 
         public virtual IEnumerable<DeliveryRoute> RouteHistory { get; set; }
 

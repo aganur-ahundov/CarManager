@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Data.Entity;
 using CarManager.DAL.Initializer;
+using CarManager.DAL.Context;
+
 
 namespace CarManager
 {
@@ -13,7 +15,9 @@ namespace CarManager
     {
         protected void Application_Start()
         {
-            Database.SetInitializer( new CarManagerInitializer() );
+            Database.SetInitializer<CarContext> ( new CarManagerInitializer() );
+            Database.SetInitializer<ApplicationContext>( new IdentityInitializer() );
+
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }

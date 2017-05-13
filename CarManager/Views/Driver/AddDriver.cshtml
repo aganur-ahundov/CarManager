@@ -1,0 +1,52 @@
+﻿@using CarManager.Models;
+
+@model Driver
+
+
+@{
+    ViewBag.Title = "Register New Driver";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>Register New Driver</h2>
+
+@*@using ( Html.BeginForm( "AddDriver", "Driver", FormMethod.Post ) )
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Driver</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.Name )
+            @Html.EditorFor( model => model.Name )
+            @Html.ValidationMessageFor( model => model.Name )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.LicenseNumber )
+            @Html.EditorFor( model => model.LicenseNumber )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.Age )
+            @Html.EditorFor( model => model.Age )
+            @Html.ValidationMessageFor( model => model.Age )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.)
+            @Html.EnumDropDownListFor(model => model.CarType)
+            @Html.ValidationMessageFor(model => model.CarType)
+        </div>
+
+        <div class="form-group">
+            <button class="add-route">Add New Request</button>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+
+    </div>
+}*@
+

@@ -1,0 +1,47 @@
+﻿@using CarManager.Models;
+
+@model Request
+
+@{
+    ViewBag.Title = "Add New Request";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+
+<h2>Add New Request</h2>
+
+@using ( Html.BeginForm( "AddRequest", "Request", FormMethod.Post ) )
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Request</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.DriverName )
+            @Html.EditorFor( model => model.DriverName )
+            @Html.ValidationMessageFor( model => model.DriverName )
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor( model => model.CarryingCapacity )
+            @Html.EditorFor( model => model.CarryingCapacity )
+            @Html.ValidationMessageFor( model => model.CarryingCapacity )
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor( model => model.CarType )
+            @Html.EnumDropDownListFor( model => model.CarType )
+            @Html.ValidationMessageFor( model => model.CarType )
+        </div>
+
+        <div class="form-group">
+            <button class="add-route">Add New Request</button>
+            @Html.ActionLink( "Back to List", "Index" )
+        </div>
+
+    </div>
+}
+

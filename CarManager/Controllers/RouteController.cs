@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Linq;
 using CarManager.DAL.Repositories;
 using CarManager.Models;
 
@@ -13,13 +11,16 @@ namespace CarManager.Controllers
     {
         private CarUnitOfWork repository = new CarUnitOfWork();
 
-        // GET: Route
+
+        [Authorize(Roles = "admin, operator")]
         public ActionResult Index()
         {
             return View( repository.Routes.GetAll() );
         }
 
+
         [HttpGet]
+        [Authorize(Roles = "admin, operator")]
         public ActionResult EditRoute( int? id )
         {
             if ( id == null )
@@ -33,25 +34,49 @@ namespace CarManager.Controllers
             return HttpNotFound();
         }
 
+
         [HttpPost]
+        [Authorize( Roles = "admin, operator" )]
         public ActionResult EditRoute( DeliveryRoute route )
         {
             repository.Routes.Update( route );
             return View( "Index", repository.Routes.GetAll() );
         }
 
+
         [HttpGet]
+        [Authorize( Roles = "admin, operator" )]
         public ActionResult AddDeliveryRoute()
         {
-            return View( "AddDeliveryRoute" ); ////HERE
+            return View( "AddDeliveryRoute" ); 
         }
 
+
         [HttpPost]
+        [Authorize( Roles = "admin, operator" )]
         public ActionResult AddDeliveryRoute( DeliveryRoute route )
         {
             repository.Routes.Create( route );
             return View( "Index", repository.Routes.GetAll() );
 
         }
+
+        
+        public ActionResult SortRoutesById() ///CHANGE HERE AND ALL BRUNCH
+        {
+            return PartialView( "DeliveryRoutesList", repository.Routes.GetAll().OrderBy( r => r.DeliveryTo ));
+        }
+
+
+        public ActionResult SortRoutesByCreatedTime()
+        {
+            return PartialView( "DeliveryRoutesList", repository.Routes.GetAll().OrderBy( r => r.Created ));
+        }
+
+        public ActionResult SortRoutesByStatus()
+        {
+            return PartialView( "DeliveryRoutesList", repository.Routes.GetAll().OrderBy( r => r.Status ));
+        }
+        
     }
 }

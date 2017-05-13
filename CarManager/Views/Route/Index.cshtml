@@ -8,7 +8,12 @@
 
     <div class="routes-table">
        <table>
-           <thead>
+           <thead> 
+               <tr>
+                   <td>@Ajax.ActionLink("by Number", "SortRoutesById", new AjaxOptions { UpdateTargetId = "routes-list" } )</td>
+                   <td>@Ajax.ActionLink("by Created", "SortRoutesByCreatedTime", new AjaxOptions { UpdateTargetId = "routes-list" })</td>
+                   <td>@Ajax.ActionLink("by Status", "SortRoutesByStatus", new AjaxOptions { UpdateTargetId = "routes-list" })</td>
+               </tr>
                <tr>
                    <th>#</th>
                    <th>From</th>
@@ -18,21 +23,32 @@
                    <th>Status</th>
                </tr>
            </thead>
-           <tbody>
-               @foreach( DeliveryRoute route in Model )
+           <tbody id="routes-list">
+               @* AJAX PARTIAL HERE *@
+               @{ int i = 1; }
+               @foreach (DeliveryRoute route in Model)
                {
                    <tr>
-                       <td> @Html.DisplayFor( modelItem => route.Id ) </td>
-                       <td> @Html.DisplayFor( modelItem => route.DeliveryFrom ) </td>
-                       <td> @Html.DisplayFor( modelItem => route.DeliveryTo ) </td>
-                       <td> @Html.DisplayFor( modelItem => route.DeliveryDate ) </td>
-                       <td> @Html.DisplayFor( modelItem => route.IsTransborder ) </td>
-                       <td> @Html.DisplayFor( modelItem => route.Status) </td>
-                       <td> @Html.ActionLink( "Edit", "EditRoute", new { id = route.Id } ) </td>
-                       @*<td> @Html.ActionLink( "Delete", "DeleteRoute", new { id = route.Id }) </td>*@
+                       <td> @(i++) </td>
+                       <td> @Html.DisplayFor(modelItem => route.DeliveryFrom) </td>
+                       <td> @Html.DisplayFor(modelItem => route.DeliveryTo) </td>
+                       <td> @Html.DisplayFor(modelItem => route.DeliveryDate) </td>
+                       <td> @Html.DisplayFor(modelItem => route.IsTransborder) </td>
+                       <td> @Html.DisplayFor(modelItem => route.Status) </td>
+                       <td> @Html.ActionLink("Edit", "EditRoute", new { id = route.Id }) </td>
+                       <td> @Html.ActionLink( "Delete", "DeleteRoute", new { id = route.Id }) </td>
                    </tr>
                }
-               <tr><td colspan="3"> @Html.ActionLink( "Add Delivery Route", "AddDeliveryRoute" ) </td></tr>
            </tbody>
+           <tfoot>
+               <tr><td colspan="3"> @Html.ActionLink("Add Delivery Route", "AddDeliveryRoute") </td></tr>
+           </tfoot>
        </table>
     </div>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    }

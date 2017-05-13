@@ -10,21 +10,23 @@ namespace CarManager.DAL.Repositories
     {
         private CarContext context = new CarContext();
 
-        private OperatorRepository operatorRepository;
+        private OperatorRepository m_operators;
 
-        private RouteRepository routeRepository;
+        private RouteRepository m_routes;
 
-        private DriverRepository driverRepository;
+        private DriverRepository m_drivers;
+
+        private RequestRepository m_requests;
 
 
         public IRepository<Operator> Operators
         {
             get
             {
-                if ( operatorRepository == null )
-                    operatorRepository = new OperatorRepository( context );
+                if ( m_operators == null )
+                    m_operators = new OperatorRepository( context );
 
-                return operatorRepository;
+                return m_operators;
             }
         }
 
@@ -33,10 +35,10 @@ namespace CarManager.DAL.Repositories
         {
             get
             {
-                if ( routeRepository == null )
-                    routeRepository = new RouteRepository( context );
+                if ( m_routes == null )
+                    m_routes = new RouteRepository( context );
 
-                return routeRepository;
+                return m_routes;
             }
         }
 
@@ -45,13 +47,23 @@ namespace CarManager.DAL.Repositories
         {
             get
             {
-                if ( driverRepository == null )
-                    driverRepository = new DriverRepository( context );
+                if ( m_drivers == null )
+                    m_drivers = new DriverRepository( context );
 
-                return driverRepository;
+                return m_drivers;
             }
         }
 
+        public IRepository<Request> Requests
+        {
+            get
+            {
+                if ( m_requests == null )
+                    m_requests = new RequestRepository( context );
+
+                return m_requests;
+            }
+        }
 
 
         public void Save()

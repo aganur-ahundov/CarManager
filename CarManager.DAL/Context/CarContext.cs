@@ -12,5 +12,7 @@ namespace CarManager.DAL.Context
         public DbSet<Operator> Operators { get; set; }
 
         public DbSet<Driver> Drivers { get; set; }
+
+        public DbSet<Request> Requests { get; set; }
     }
 }

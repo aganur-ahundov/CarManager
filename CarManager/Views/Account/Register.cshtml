@@ -1,0 +1,67 @@
+﻿@model CarManager.Models.Identity.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>Register</h2>
+<p>Fill all fields</p>
+
+@using ( Html.BeginForm() )
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h4>User Registration</h4>
+        <hr />
+        @Html.ValidationSummary()
+
+        <div>
+            @Html.LabelFor( m => Model.Name )
+            @Html.EditorFor( m => Model.Name )
+        </div>
+
+        <div>
+            @Html.LabelFor( m => Model.Email )
+            @Html.EditorFor( m => Model.Email )
+        </div>
+
+        <div>
+            @Html.LabelFor( m => Model.Year )
+            @Html.EditorFor( m => Model.Year )
+        </div>
+
+        <div>
+            @Html.LabelFor( m => Model.Password )
+            @Html.EditorFor( m => Model.Password )
+        </div>
+
+        <div>
+            @Html.LabelFor( m => Model.PasswordConfirm )
+            @Html.EditorFor( m => Model.PasswordConfirm )
+        </div>
+
+        <div>
+            @Html.LabelFor( m => Model.Role )
+            @Html.EnumDropDownListFor( m => Model.Role )
+        </div>
+
+
+
+        <button>Register</button>
+    </div>
+
+    
+}
+
+@using CarManager.Models.Identity;
+
+@if (ViewBag.users != null)
+{
+    foreach (ApplicationUser u in ViewBag.users)
+    {
+        <p>@u.UserName</p>
+        <p>@u.Email</p>
+    }
+}

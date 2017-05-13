@@ -14,7 +14,6 @@
             <tr>
                 <th>Name</th>
                 <th>Age</th>
-                <th>License Number</th>
                 <th>Status</th>
             </tr>
         </thead>
@@ -24,7 +23,6 @@
                 <tr>
                     <td>@current.Name</td>
                     <td>@current.Age</td>
-                    <td>@current.LicenseNumber</td>
                     <td>@current.Status</td>
                     <td>@Html.ActionLink( "Details", "DriverDetails", new { id = current.Id } ) </td>
                 </tr>
@@ -32,7 +30,7 @@
         </tbody>
     </table>
     <div>
-        @Html.ActionLink("Add Driver", "AddDriver")
+        @Html.ActionLink( "Add Driver", "AddDriver" )
     </div>
 
 </div>
