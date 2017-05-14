@@ -14,5 +14,7 @@ namespace CarManager.DAL.Context
         public DbSet<Driver> Drivers { get; set; }
 
         public DbSet<Request> Requests { get; set; }
+
+        public DbSet<Car> Cars { get; set; }
     }
 }

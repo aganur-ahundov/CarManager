@@ -42,6 +42,9 @@ namespace CarManager.Models
 
         [Display( Name = "Is broken" )]
         public bool IsBroken { get; set; }
- 
+        
+
+        [Display( Name = "Free" )]
+        public bool IsFree { get; set; }
     }
 }

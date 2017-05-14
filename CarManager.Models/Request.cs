@@ -12,7 +12,6 @@ namespace CarManager.Models
         [Display(Name = "Name")]
         public string DriverName { get; set; }
         
-        public string DriverLicenseNumber { get; set; }
         
         [Required]
         [Display(Name = "Car Type")]
@@ -24,5 +23,8 @@ namespace CarManager.Models
 
 
         public DateTime Created { get; set; }
+
+
+        public virtual Car Car { get; set; }
     }
 }

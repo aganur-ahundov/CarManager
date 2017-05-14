@@ -18,6 +18,8 @@ namespace CarManager.DAL.Repositories
 
         private RequestRepository m_requests;
 
+        private CarRepository m_cars;
+
 
         public IRepository<Operator> Operators
         {
@@ -64,6 +66,19 @@ namespace CarManager.DAL.Repositories
                 return m_requests;
             }
         }
+
+
+        public IRepository<Car> Cars
+        {
+            get
+            {
+                if (m_cars == null)
+                    m_cars = new CarRepository( context );
+
+                return m_cars;
+            }
+        }
+
 
 
         public void Save()

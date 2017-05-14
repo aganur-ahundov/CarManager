@@ -34,7 +34,7 @@ namespace CarManager.DAL.Initializer
             CreateAdmin( userManager, admin_role, user_role );
             create_user( userManager, user_role, "User1", "user1@gmail.com", "111111" );
             create_user( userManager, operator_role, "Operator1", "operator1@gmail.com", "111111" );
-            create_user( userManager, user_role, "Driver1", "driver1@gmail.com", "111111");
+            create_user( userManager, driver_role, "Driver1", "driver1@gmail.com", "111111");
 
 
             base.Seed(context);

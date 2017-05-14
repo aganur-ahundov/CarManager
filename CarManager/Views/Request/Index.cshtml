@@ -1,0 +1,38 @@
+﻿@using CarManager.Models;
+
+@model IEnumerable<Request>
+
+@{
+    ViewBag.Title = "Requests";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>Requests List</h2>
+
+<table class="requests-list">
+    <thead>
+        <tr>
+            <td> Id </td>
+            <td> Driver Name </td>
+            <td> Car Type </td>
+            <td> Carrying Capacity </td>
+            <td> Date </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach( Request current in Model )
+        {
+            <tr>
+                <td> @current.Id </td>
+                <td> @current.DriverName </td>
+                <td> @current.CarType </td>
+                <td> @current.CarryingCapacity </td>
+                <td> @( current.Car == null  ?  "Open" : current.Car.Id.ToString() ) </td>
+                <td> @current.Created </td>
+                <td> @Html.ActionLink( "Choose Car", "ChooseCar",  new { requestId = current.Id } ) </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

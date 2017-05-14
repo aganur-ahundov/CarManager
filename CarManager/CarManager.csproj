@@ -144,6 +144,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
@@ -167,6 +168,10 @@
     <Content Include="Views\Route\DeliveryRoutesList.cshtml" />
     <Content Include="Views\Request\AddRequest.cshtml" />
     <Content Include="Views\Driver\AddDriver.cshtml" />
+    <Content Include="Views\Request\Index.cshtml" />
+    <Content Include="Views\Request\CarList.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
+    <Content Include="Views\Car\AddCar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

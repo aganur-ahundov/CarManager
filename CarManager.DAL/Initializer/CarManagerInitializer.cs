@@ -11,20 +11,28 @@ namespace CarManager.DAL.Initializer
     {
         protected override void Seed( CarContext _context )
         {
-            _context.Operators.Add( new Operator { Name = "Jax" } );
+            _context.Operators.Add(new Operator { Name = "Jax" });
 
-            
-            _context.Drivers.Add( new Driver { Name = "Alex", Age = 27, LicenseNumber = "AX27891", Status = DriverStatus.Available } );
-            _context.Drivers.Add( new Driver { Name = "Nick", Age = 32, LicenseNumber = "AP15191", Status = DriverStatus.OnRoute } );
-            _context.Drivers.Add( new Driver { Name = "Max", Age = 41, LicenseNumber = "AX127764", Status = DriverStatus.Available } );
-            _context.Drivers.Add( new Driver { Name = "Alex", Age = 27, LicenseNumber = "ZX168780", Status = DriverStatus.Available } );
-            _context.Drivers.Add( new Driver { Name = "Daril", Age = 30, LicenseNumber = "IO274342", Status = DriverStatus.Available });
-
-            _context.SaveChanges();
+            AddDrivers(_context);
             AddDeliveryRoutes(_context);
-            
+
+            _context.Cars.Add( new Car { Mark = "Mers", Model = "1883", CarryingCapacity = 4800, Weight = 8000, Type = CarType.Truck, Year = 1989, IsBroken = false, IsFree = true } );
+            _context.Cars.Add( new Car { Mark = "Benz", Model = "1993", CarryingCapacity = 5800, Weight = 8500, Type = CarType.Truck, Year = 1989, IsBroken = false, IsFree = true } );
+            _context.Cars.Add( new Car { Mark = "Coip", Model = "83", CarryingCapacity = 3800, Weight = 5000, Type = CarType.Coupling, Year = 1989, IsBroken = false, IsFree = true } );
+            _context.Cars.Add( new Car { Mark = "Trail", Model = "013", CarryingCapacity = 6800, Weight = 9000, Type = CarType.Trailer, Year = 2003, IsBroken = false, IsFree = true } );
+            _context.SaveChanges();
 
             base.Seed(_context);
+        }
+
+        private static void AddDrivers(CarContext _context)
+        {
+            _context.Drivers.Add(new Driver { Name = "Alex", Age = 27, Status = DriverStatus.Available });
+            _context.Drivers.Add(new Driver { Name = "Nick", Age = 32, Status = DriverStatus.OnRoute });
+            _context.Drivers.Add(new Driver { Name = "Max", Age = 41, Status = DriverStatus.Available });
+            _context.Drivers.Add(new Driver { Name = "Alex", Age = 27, Status = DriverStatus.Available });
+            _context.Drivers.Add(new Driver { Name = "Daril", Age = 30, Status = DriverStatus.Available });
+            _context.SaveChanges();
         }
 
         private static void AddDeliveryRoutes(CarContext _context)

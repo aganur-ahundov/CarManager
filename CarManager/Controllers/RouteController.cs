@@ -64,7 +64,7 @@ namespace CarManager.Controllers
         
         public ActionResult SortRoutesById() ///CHANGE HERE AND ALL BRUNCH
         {
-            return PartialView( "DeliveryRoutesList", repository.Routes.GetAll().OrderBy( r => r.DeliveryTo ));
+            return PartialView( "DeliveryRoutesList", repository.Routes.GetAll().OrderBy( r => r.Id ));
         }
 
 

@@ -1,0 +1,50 @@
+﻿@using CarManager.Models;
+
+@model IEnumerable<Car>
+
+
+@{
+    ViewBag.Title = "Cars";
+    Layout = "~/Views/Layout/CarManagerLayout.cshtml";
+}
+
+<h2>All Cars</h2>
+
+<table class="car-list">
+    <thead>
+        <tr>
+            <td> Id </td>
+            <td> Mark </td>
+            <td> Model </td>
+            <td> Weight </td>
+            <td> Year </td>
+            <td> Type </td>
+            <td> Carrying Capacity </td>
+            <td> Free </td>
+            <td> Broken </td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ( Car current in Model )
+        {
+            <tr>
+                <td> @current.Id </td>
+                <td> @current.Mark </td>
+                <td> @current.Model </td>
+                <td> @current.Weight </td>
+                <td> @current.Year </td>
+                <td> @current.Type </td>
+                <td> @current.CarryingCapacity </td>
+                <td> @current.IsFree </td>
+                <td> @current.IsBroken </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        @Html.ActionLink( "Add New Car", "AddCar", "Car" )
+    </tfoot>
+
+</table>
+
+
+
